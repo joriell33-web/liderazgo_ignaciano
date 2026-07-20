@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilares del Liderazgo Ignaciano - Infografía Interactiva</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel (Classical look) and Inter (Clean body font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind Config for Custom Fonts and Gold Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#030712',
+                            900: '#0a1128',
+                            800: '#101f42',
+                            700: '#1c3166',
+                        },
+                        gold: {
+                            100: '#fbf5db',
+                            200: '#f4e6b1',
+                            300: '#ebd27c',
+                            400: '#dfb743',
+                            500: '#d4af37', // True Gold
+                            600: '#b8942a',
+                            700: '#947420',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a1128;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b8942a;
+        }
+        
+        /* Shimmering animations and gold glow */
+        @keyframes gold-glow {
+            0%, 100% { text-shadow: 0 0 4px rgba(212, 175, 55, 0.4), 0 0 12px rgba(212, 175, 55, 0.2); }
+            50% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.8), 0 0 20px rgba(212, 175, 55, 0.4); }
+        }
+        .glow-title {
+            animation: gold-glow 4s ease-in-out infinite;
+        }
+        
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+        }
+
+        /* Ambient sparkling stars in background */
+        .sparkle {
+            position: absolute;
+            background: radial-gradient(circle, #fbf5db 10%, transparent 80%);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: pulse-sparkle 6s infinite ease-in-out;
+        }
+        @keyframes pulse-sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-slate-200 font-sans relative min-h-screen overflow-x-hidden selection:bg-gold-500 selection:text-navy-950">
+
+    <div id="sparkle-container" class="absolute inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Header / Nav bar -->
+    <header class="border-b border-gold-500/20 bg-navy-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <svg class="w-8 h-8 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" />
+                </svg>
+                <span class="font-cinzel text-lg tracking-wider text-gold-300 font-semibold">MAGIS LIDERAZGO</span>
+            </div>
+            <nav class="flex gap-4 md:gap-8 text-xs sm:text-sm font-cinzel tracking-widest text-slate-300">
+                <a href="#pilares-section" class="hover:text-gold-400 transition-colors">LOS 4 PILARES</a>
+                <a href="#assessment-section" class="hover:text-gold-400 transition-colors">AUTOEVALUACIÓN</a>
+                <button onclick="toggleAudio()" id="audio-toggle" class="text-gold-500 hover:text-gold-300 transition-all flex items-center gap-1.5">
+                    <span id="audio-icon">🔊</span> <span class="hidden md:inline">SONIDO</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <section class="max-w-6xl mx-auto px-4 pt-16 pb-12 text-center">
+            <span class="text-xs font-cinzel tracking-widest text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full bg-gold-500/5">INFOGRAFÍA INTERACTIVA</span>
+            <h1 class="font-cinzel text-4xl sm:text-5xl md:text-6xl font-bold mt-6 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 glow-title">
+                PILARES DEL LIDERAZGO IGNACIANO
+            </h1>
+            <p class="max-w-2xl mx-auto mt-6 text-slate-300 text-lg leading-relaxed font-light">
+                El verdadero liderazgo ignaciano no se ejerce mediante jerarquías, sino a través de la autotransformación constante y el deseo de servir con excelencia. Descubre los cuatro pilares fundamentales.
+            </p>
+            <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-8"></div>
+        </section>
+
+        <section id="pilares-section" class="max-w-6xl mx-auto px-4 py-8">
+            <div class="text-center mb-10">
+                <p class="text-sm text-gold-300/80 uppercase tracking-widest font-cinzel">Selecciona un pilar para explorar su concepto, ejemplo y activar su herramienta interactiva</p>
+            </div>
+
+            <!-- Pillars Grid Wrapper -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-stretch">
+                <!-- Pillar 1: Autoconocimiento -->
+                <div onclick="selectPillar(1)" id="pillar-card-1" class="group cursor-pointer bg-navy-900/60 border border-gold-500/20 rounded-xl p-6 flex flex-col justify-between text-center transition-all duration-500 hover:border-gold-500/60 hover:-translate-y-2 gold-border-glow">
+                    <div>
+                        <!-- Column Icon and Top Ornament -->
+                        <div class="mb-4 text-gold-400 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                            <!-- Compass Icon -->
+                            <svg class="w-12 h-12 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="9" />
+                                <polygon points="12,3 12,9 15,12 12,15 12,21 12,15 9,12 12,9" class="fill-gold-500/10" />
+                                <line x1="12" y1="3" x2="12" y2="21" />
+                                <line x1="3" y1="12" x2="21" y2="12" />
+                            </svg>
+                        </div>
+                        <h2 class="font-cinzel text-xl text-gold-300 font-semibold tracking-wide">1. Autoconocimiento</h2>
+                        <div class="w-12 h-[1px] bg-gold-500/30 mx-auto my-3"></div>
+                        <p class="text-xs text-slate-400 font-cinzel tracking-widest uppercase">La brújula interna</p>
+                        
+                        <!-- Mini Column Visual Art -->
+                        <div class="my-6 flex justify-center">
+                            <div class="w-8 h-24 border-x border-t border-gold-500/20 group-hover:border-gold-500/50 rounded-t-md relative flex flex-col justify-between p-1 transition-all">
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slate-300 line-clamp-3">Profundo entendimiento de las propias fortalezas, debilidades, motivaciones y valores.</p>
+                    </div>
+                    <div class="mt-6">
+                        <span class="inline-block text-xs font-cinzel text-gold-400 group-hover:text-gold-200 transition-colors uppercase tracking-widest">Explorar Pilar &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Amor -->
+                <div onclick="selectPillar(2)" id="pillar-card-2" class="group cursor-pointer bg-navy-900/60 border border-gold-500/20 rounded-xl p-6 flex flex-col justify-between text-center transition-all duration-500 hover:border-gold-500/60 hover:-translate-y-2 gold-border-glow">
+                    <div>
+                        <div class="mb-4 text-gold-400 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                            <!-- Heart / Hands Icon -->
+                            <svg class="w-12 h-12 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
+                            </svg>
+                        </div>
+                        <h2 class="font-cinzel text-xl text-gold-300 font-semibold tracking-wide">2. Amor</h2>
+                        <div class="w-12 h-[1px] bg-gold-500/30 mx-auto my-3"></div>
+                        <p class="text-xs text-slate-400 font-cinzel tracking-widest uppercase">El motor del servicio</p>
+
+                        <!-- Mini Column Visual Art -->
+                        <div class="my-6 flex justify-center">
+                            <div class="w-8 h-24 border-x border-t border-gold-500/20 group-hover:border-gold-500/50 rounded-t-md relative flex flex-col justify-between p-1 transition-all">
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slate-300 line-clamp-3">Compromiso inquebrantable con el bienestar y el desarrollo de los demás, reconociendo el valor único en cada persona.</p>
+                    </div>
+                    <div class="mt-6">
+                        <span class="inline-block text-xs font-cinzel text-gold-400 group-hover:text-gold-200 transition-colors uppercase tracking-widest">Explorar Pilar &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Heroísmo -->
+                <div onclick="selectPillar(3)" id="pillar-card-3" class="group cursor-pointer bg-navy-900/60 border border-gold-500/20 rounded-xl p-6 flex flex-col justify-between text-center transition-all duration-500 hover:border-gold-500/60 hover:-translate-y-2 gold-border-glow">
+                    <div>
+                        <div class="mb-4 text-gold-400 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                            <!-- Flag / Peak Icon -->
+                            <svg class="w-12 h-12 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V3m0 0h12l3 3-3 3H3m12 12V9" />
+                            </svg>
+                        </div>
+                        <h2 class="font-cinzel text-xl text-gold-300 font-semibold tracking-wide">3. Heroísmo</h2>
+                        <div class="w-12 h-[1px] bg-gold-500/30 mx-auto my-3"></div>
+                        <p class="text-xs text-slate-400 font-cinzel tracking-widest uppercase">El horizonte infinito</p>
+
+                        <!-- Mini Column Visual Art -->
+                        <div class="my-6 flex justify-center">
+                            <div class="w-8 h-24 border-x border-t border-gold-500/20 group-hover:border-gold-500/50 rounded-t-md relative flex flex-col justify-between p-1 transition-all">
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slate-300 line-clamp-3">Valentía y nobleza para emprender propósitos ambiciosos, buscando siempre tener un impacto positivo superior (*Magis*).</p>
+                    </div>
+                    <div class="mt-6">
+                        <span class="inline-block text-xs font-cinzel text-gold-400 group-hover:text-gold-200 transition-colors uppercase tracking-widest">Explorar Pilar &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Ingenio -->
+                <div onclick="selectPillar(4)" id="pillar-card-4" class="group cursor-pointer bg-navy-900/60 border border-gold-500/20 rounded-xl p-6 flex flex-col justify-between text-center transition-all duration-500 hover:border-gold-500/60 hover:-translate-y-2 gold-border-glow">
+                    <div>
+                        <div class="mb-4 text-gold-400 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                            <!-- Gear / Innovation Crystal Icon -->
+                            <svg class="w-12 h-12 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h2 class="font-cinzel text-xl text-gold-300 font-semibold tracking-wide">4. Ingenio</h2>
+                        <div class="w-12 h-[1px] bg-gold-500/30 mx-auto my-3"></div>
+                        <p class="text-xs text-slate-400 font-cinzel tracking-widest uppercase">La adaptabilidad libre</p>
+
+                        <!-- Mini Column Visual Art -->
+                        <div class="my-6 flex justify-center">
+                            <div class="w-8 h-24 border-x border-t border-gold-500/20 group-hover:border-gold-500/50 rounded-t-md relative flex flex-col justify-between p-1 transition-all">
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-1 bg-gold-500/20"></div>
+                                <div class="w-full h-2 bg-gold-500/10 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slate-300 line-clamp-3">Capacidad para innovar y adaptarse libremente a los rápidos cambios del entorno sin perder la propia esencia.</p>
+                    </div>
+                    <div class="mt-6">
+                        <span class="inline-block text-xs font-cinzel text-gold-400 group-hover:text-gold-200 transition-colors uppercase tracking-widest">Explorar Pilar &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pilar-detail-section" class="max-w-5xl mx-auto px-4 py-8 hidden">
+            <div class="bg-navy-900/80 border-2 border-gold-500/35 rounded-2xl p-6 md:p-10 relative overflow-hidden">
+                <!-- Golden corner ornaments -->
+                <div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-gold-500/40"></div>
+                <div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-gold-500/40"></div>
+                <div class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-gold-500/40"></div>
+                <div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-gold-500/40"></div>
+
+                <div class="flex justify-between items-start mb-6">
+                    <span id="detail-number" class="font-cinzel text-5xl md:text-7xl text-gold-500/25 font-black">01</span>
+                    <button onclick="closeDetails()" class="text-slate-400 hover:text-gold-500 transition-colors text-xl p-1 bg-navy-950/50 rounded-full border border-slate-700 hover:border-gold-500/30">
+                        &times;
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    <!-- Concept and Example Column -->
+                    <div class="space-y-6">
+                        <div>
+                            <h3 id="detail-title" class="font-cinzel text-3xl text-gold-300 font-bold tracking-wide">Pilar del Liderazgo</h3>
+                            <p id="detail-subtitle" class="text-xs text-gold-500 uppercase tracking-widest font-cinzel mt-1">Subtítulo del pilar</p>
+                        </div>
+
+                        <div class="p-4 bg-navy-950/60 border border-gold-500/10 rounded-lg">
+                            <h4 class="text-xs font-cinzel text-gold-400 tracking-wider uppercase mb-1">Concepto</h4>
+                            <p id="detail-concept" class="text-slate-200 leading-relaxed text-sm">Concepto principal que describe el pilar con total exactitud y rigor.</p>
+                        </div>
+
+                        <div class="p-4 bg-navy-950/60 border border-gold-500/10 rounded-lg">
+                            <h4 class="text-xs font-cinzel text-gold-400 tracking-wider uppercase mb-1">Ejemplo en la Práctica</h4>
+                            <p id="detail-example" class="text-slate-300 italic text-sm">"Ejemplo real y práctico de cómo un líder aplica este concepto día a día."</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Micro-Tool Column -->
+                    <div class="border border-gold-500/20 bg-navy-950/70 rounded-xl p-6 relative">
+                        <div class="absolute -top-3 left-4 bg-navy-950 px-3 border border-gold-500/30 rounded-full text-[10px] font-cinzel tracking-widest text-gold-400 uppercase">
+                            Herramienta Práctica
+                        </div>
+                        
+                        <!-- Tool 1: Autoconocimiento (Reflection Diary) -->
+                        <div id="tool-1" class="tool-content hidden space-y-4">
+                            <h4 class="font-cinzel text-lg text-gold-300">Examen Diario Ignaciano</h4>
+                            <p class="text-xs text-slate-400">Una pausa de 2 minutos para evaluar y calibrar tu estado interior.</p>
+                            
+                            <div class="space-y-3">
+                                <label class="block text-xs text-slate-300">1. ¿Por qué agradezco el día de hoy?</label>
+                                <input type="text" id="reflect-q1" placeholder="Ej. El apoyo de mi equipo..." class="w-full bg-navy-900 border border-slate-700 rounded p-2 text-xs text-slate-200 focus:outline-none focus:border-gold-500 transition-colors">
+                                
+                                <label class="block text-xs text-slate-300">2. ¿Dónde actué hoy con menor generosidad?</label>
+                                <input type="text" id="reflect-q2" placeholder="Ej. Me impacienté en la reunión..." class="w-full bg-navy-900 border border-slate-700 rounded p-2 text-xs text-slate-200 focus:outline-none focus:border-gold-500 transition-colors">
+
+                                <label class="block text-xs text-slate-300">3. Mi compromiso concreto para mañana:</label>
+                                <input type="text" id="reflect-q3" placeholder="Ej. Escuchar activamente antes de responder..." class="w-full bg-navy-900 border border-slate-700 rounded p-2 text-xs text-slate-200 focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+
+                            <button onclick="saveReflection()" class="w-full bg-gradient-to-r from-gold-600 to-gold-400 text-navy-950 font-semibold rounded p-2 text-xs hover:from-gold-500 hover:to-gold-300 transition-all font-cinzel tracking-widest uppercase mt-2">
+                                Registrar Examen
+                            </button>
+                            
+                            <!-- Reflection Output Display -->
+                            <div id="reflection-output" class="hidden p-3 bg-navy-900 border border-gold-500/10 rounded text-[11px] text-slate-300 italic"></div>
+                        </div>
+
+                        <!-- Tool 2: Amor (Appreciative Note Builder) -->
+                        <div id="tool-2" class="tool-content hidden space-y-4">
+                            <h4 class="font-cinzel text-lg text-gold-300">Tarjeta de Aprecio y Reconocimiento</h4>
+                            <p class="text-xs text-slate-400">El liderazgo de amor empodera reconociendo las fortalezas únicas del otro.</p>
+                            
+                            <div class="space-y-3">
+                                <label class="block text-xs text-slate-300">¿A quién va dirigido?</label>
+                                <input type="text" id="love-to" placeholder="Nombre de tu colega o amigo" class="w-full bg-navy-900 border border-slate-700 rounded p-2 text-xs text-slate-200 focus:outline-none focus:border-gold-500 transition-colors">
+                                
+                                <label class="block text-xs text-slate-300">¿Qué fortaleza admiras o valoras hoy en ellos?</label>
+                                <textarea id="love-text" rows="3" placeholder="Ej. Su paciencia ante problemas difíciles y su capacidad para escuchar..." class="w-full bg-navy-900 border border-slate-700 rounded p-2 text-xs text-slate-200 focus:outline-none focus:border-gold-500 transition-colors resize-none"></textarea>
+                            </div>
+
+                            <button onclick="generateLoveCard()" class="w-full bg-gradient-to-r from-gold-600 to-gold-400 text-navy-950 font-semibold rounded p-2 text-xs hover:from-gold-500 hover:to-gold-300 transition-all font-cinzel tracking-widest uppercase mt-2">
+                                Crear Tarjeta de Reconocimiento
+                            </button>
+
+                            <!-- Love Card Preview Box -->
+                            <div id="love-card-preview" class="hidden p-4 bg-gold-500/5 border border-gold-500/30 rounded-lg text-center space-y-2 relative">
+                                <div class="absolute top-2 right-2 text-gold-500 text-lg">❤️</div>
+                                <h5 class="text-xs font-cinzel text-gold-400 tracking-wider">RECONOCIMIENTO DE LIDERAZGO</h5>
+                                <p id="love-card-body" class="text-xs text-slate-200 italic"></p>
+                                <p id="love-card-signature" class="text-[10px] text-slate-400 text-right mt-2"></p>
+                            </div>
+                        </div>
+
+                        <!-- Tool 3: Heroísmo (Mission Architect) -->
+                        <div id="tool-3" class="tool-content hidden space-y-4">
+                            <h4 class="font-cinzel text-lg text-gold-300">Planificador de Misión Heroica</h4>
+                            <p class="text-xs text-slate-400">El heroísmo ignaciano es actuar con audacia para lograr un impacto transformador (*El Magis*).</p>
+                            
+                            <div class="space-y-3">
+                                <label class="block text-xs text-slate-300">Define tu noble misión o gran reto actual:</label>
+                                <input type="text" id="hero-mission" placeholder="Ej. Liderar el programa de reciclaje comunitario..." class="w-full bg-navy-900 border border-slate-700 rounded p-2 text-xs text-slate-200 focus:outline-none focus:border-gold-500 transition-colors">
+                                
+                                <div class="space-y-2">
+                                    <span class="block text-xs text-slate-300">Acciones Heroicas requeridas (Marcar para comprometerte):</span>
+                                    <label class="flex items-center gap-2 text-xs text-slate-400 cursor-pointer hover:text-slate-200">
+                                        <input type="checkbox" id="hero-c1" class="accent-gold-500">
+                                        <span>Asumir el riesgo de dar el primer paso difícil.</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs text-slate-400 cursor-pointer hover:text-slate-200">
+                                        <input type="checkbox" id="hero-c2" class="accent-gold-500">
+                                        <span>Inspirar y motivar a otros, no por obligación, sino por visión.</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs text-slate-400 cursor-pointer hover:text-slate-200">
+                                        <input type="checkbox" id="hero-c3" class="accent-gold-500">
+                                        <span>Persistir incluso si las metas parecen inalcanzables.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button onclick="commitToMission()" class="w-full bg-gradient-to-r from-gold-600 to-gold-400 text-navy-950 font-semibold rounded p-2 text-xs hover:from-gold-500 hover:to-gold-300 transition-all font-cinzel tracking-widest uppercase mt-2">
+                                Comprometerse con la Misión
+                            </button>
+
+                            <!-- Hero Success Display -->
+                            <div id="hero-feedback" class="hidden p-3 bg-navy-900 border border-emerald-500/20 text-emerald-400 rounded text-xs text-center font-medium"></div>
+                        </div>
+
+                        <!-- Tool 4: Ingenio (Lateral Thinking Sandbox) -->
+                        <div id="tool-4" class="tool-content hidden space-y-4">
+                            <h4 class="font-cinzel text-lg text-gold-300">Laboratorio de Ingenio y Adaptabilidad</h4>
+                            <p class="text-xs text-slate-400">El ingenio es encontrar soluciones innovadoras con los recursos actuales. ¡Prueba tu creatividad con este dilema!</p>
+                            
+                            <div class="p-3 bg-navy-900 border border-slate-700 rounded text-xs text-slate-300 space-y-2">
+                                <p class="font-semibold text-gold-400">Escenario:</p>
+                                <p class="italic">"Estás liderando un proyecto importante de ayuda, pero el presupuesto original ha sido recortado a la mitad en el último minuto."</p>
+                                <p class="font-semibold text-gold-400 mt-2">¿Cuál es tu estrategia basada en el ingenio?</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer hover:text-white">
+                                    <input type="radio" name="ing-choice" value="a" class="accent-gold-500">
+                                    <span>A) Suspender temporalmente hasta recuperar presupuesto.</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer hover:text-white">
+                                    <input type="radio" name="ing-choice" value="b" class="accent-gold-500">
+                                    <span>B) Aliarse con otra organización para compartir recursos y metas.</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer hover:text-white">
+                                    <input type="radio" name="ing-choice" value="c" class="accent-gold-500">
+                                    <span>C) Re-diseñar el proyecto usando materiales reciclados y voluntarios locales.</span>
+                                </label>
+                            </div>
+
+                            <button onclick="evaluateIngenuity()" class="w-full bg-gradient-to-r from-gold-600 to-gold-400 text-navy-950 font-semibold rounded p-2 text-xs hover:from-gold-500 hover:to-gold-300 transition-all font-cinzel tracking-widest uppercase mt-2">
+                                Proponer Solución
+                            </button>
+
+                            <!-- Ingenio Output -->
+                            <div id="ingenuity-feedback" class="hidden p-3 bg-navy-900 border border-gold-500/10 rounded text-xs text-slate-300"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="assessment-section" class="max-w-4xl mx-auto px-4 py-16">
+            <div class="bg-navy-900/40 border border-gold-500/20 rounded-2xl p-8 md:p-12 relative">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-cinzel tracking-widest text-gold-400 uppercase">Autoevaluación de Liderazgo</span>
+                    <h2 class="font-cinzel text-3xl font-bold mt-2 text-gold-300">¿Qué pilar ignaciano destaca hoy en ti?</h2>
+                    <p class="text-slate-400 text-sm mt-3 max-w-lg mx-auto">Responde con total sinceridad a estas cuatro preguntas clave para descubrir tu afinidad de liderazgo.</p>
+                </div>
+
+                <!-- Quiz Progress Bar -->
+                <div class="w-full bg-navy-950 rounded-full h-1 mb-8 overflow-hidden">
+                    <div id="quiz-progress" class="bg-gold-500 h-1 transition-all duration-300" style="width: 0%"></div>
+                </div>
+
+                <!-- Question Area -->
+                <div id="quiz-container">
+                    <!-- Q1 -->
+                    <div class="quiz-question space-y-4" data-index="1">
+                        <h3 class="text-slate-200 font-semibold text-lg font-cinzel">1. Frente a una decisión de equipo muy difícil, tu prioridad de manera instintiva es:</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <button onclick="answerQuiz(1, 'A')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                A) Tomar un momento de pausa y reflexionar si es coherente con mis valores internos.
+                            </button>
+                            <button onclick="answerQuiz(1, 'B')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                B) Buscar cómo proteger y favorecer el bienestar y las necesidades personales de cada miembro del equipo.
+                            </button>
+                            <button onclick="answerQuiz(1, 'C')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                C) Impulsar la acción más audaz, ambiciosa y con mayor impacto posible para la comunidad.
+                            </button>
+                            <button onclick="answerQuiz(1, 'D')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                D) Buscar soluciones creativas totalmente diferentes, adaptándome libremente a las circunstancias cambiantes.
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q2 (Hidden originally) -->
+                    <div class="quiz-question space-y-4 hidden" data-index="2">
+                        <h3 class="text-slate-200 font-semibold text-lg font-cinzel">2. ¿Cómo mides principalmente tu éxito al final de un largo proyecto?</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <button onclick="answerQuiz(2, 'A')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                A) Si he aprendido más sobre mí mismo, mis limitaciones y he fortalecido mi carácter.
+                            </button>
+                            <button onclick="answerQuiz(2, 'B')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                B) Si los miembros de mi equipo se sienten valorados, con mayor confianza y listos para seguir creciendo.
+                            </button>
+                            <button onclick="answerQuiz(2, 'C')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                C) Si logramos superar los límites normales para alcanzar un impacto duradero y trascendente.
+                            </button>
+                            <button onclick="answerQuiz(2, 'D')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                D) Si fuimos capaces de iterar, resolver contratiempos inesperados con originalidad y cambiar el plan con agilidad.
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q3 (Hidden originally) -->
+                    <div class="quiz-question space-y-4 hidden" data-index="3">
+                        <h3 class="text-slate-200 font-semibold text-lg font-cinzel">3. Cuando cometes un error grave como líder, ¿cuál es tu reacción más típica?</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <button onclick="answerQuiz(3, 'A')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                A) Analizar a fondo mis propias motivaciones y debilidades para evitar repetirlo en el futuro.
+                            </button>
+                            <button onclick="answerQuiz(3, 'B')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                B) Asegurarme de que el error no cause daños a terceros ni afecte la armonía emocional del grupo.
+                            </button>
+                            <button onclick="answerQuiz(3, 'C')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                C) Redoblar mis esfuerzos con valentía para transformar ese fallo en una meta aún mayor y más inspiradora.
+                            </button>
+                            <button onclick="answerQuiz(3, 'D')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                D) Adaptar inmediatamente la estrategia para crear soluciones alternativas brillantes con los nuevos límites.
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q4 (Hidden originally) -->
+                    <div class="quiz-question space-y-4 hidden" data-index="4">
+                        <h3 class="text-slate-200 font-semibold text-lg font-cinzel">4. Tu visión definitiva de lo que significa liderar hoy es:</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <button onclick="answerQuiz(4, 'A')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                A) Conocerse tan profundamente que se pueda liderar de forma libre y auténtica desde el ser.
+                            </button>
+                            <button onclick="answerQuiz(4, 'B')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                B) Generar un ambiente de empatía, afecto y apoyo incondicional para empoderar el talento del otro.
+                            </button>
+                            <button onclick="answerQuiz(4, 'C')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                C) Estar siempre motivados para emprender la mayor hazaña y desafiar continuamente los límites del "statu quo".
+                            </button>
+                            <button onclick="answerQuiz(4, 'D')" class="w-full text-left p-4 bg-navy-950/60 border border-slate-700/50 hover:border-gold-500 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-gold-500/5 transition-all">
+                                D) Ser libres ante el cambio, innovar sin miedo a equivocarse y usar el ingenio como recurso vital.
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Area (Hidden originally) -->
+                    <div id="quiz-results" class="hidden text-center space-y-6">
+                        <div class="w-20 h-20 mx-auto text-gold-500 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-500/30">
+                            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-cinzel text-gold-400 tracking-widest uppercase">Tu Pilar Dominante</h3>
+                            <h4 id="result-pillar-title" class="font-cinzel text-3xl text-gold-300 font-bold mt-1">El Autoconocimiento</h4>
+                        </div>
+                        <p id="result-pillar-desc" class="text-slate-300 text-sm max-w-lg mx-auto leading-relaxed">
+                            Eres un líder con gran introspección. Conoces muy bien tus motores internos y tus límites, lo cual te permite guiar a tu equipo con gran autenticidad y resiliencia emocional.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4 pt-4">
+                            <button onclick="restartQuiz()" class="px-6 py-2 border border-gold-500/30 rounded-full text-xs font-cinzel tracking-widest text-gold-400 hover:bg-gold-500/10 transition-all uppercase">
+                                Realizar de nuevo
+                            </button>
+                            <button onclick="goToPillarFromQuiz()" class="px-6 py-2 bg-gradient-to-r from-gold-600 to-gold-400 text-navy-950 font-bold rounded-full text-xs font-cinzel tracking-widest hover:from-gold-500 hover:to-gold-300 transition-all uppercase">
+                                Ir a mi pilar en detalle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gold-500/20 bg-navy-950/90 py-12 relative z-10 text-center">
+        <div class="max-w-6xl mx-auto px-4 space-y-6">
+            <p class="font-cinzel text-gold-500 text-lg tracking-wider font-semibold">"LÍDERES PARA LOS DEMÁS, QUE INSPIRAN ESPERANZA Y TRANSFORMAN SU ENTORNO"</p>
+            <div class="w-16 h-[1px] bg-gold-500/40 mx-auto"></div>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+                Basado en el modelo de liderazgo ignaciano, inspirado en las enseñanzas de San Ignacio de Loyola para formar personas conscientes, competentes, compasivas y comprometidas.
+            </p>
+            <p class="text-[10px] text-slate-600">&copy; 2026 Magis Liderazgo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* Interactive Data for Pillars */
+        const pillarData = {
+            1: {
+                title: "1. El Autoconocimiento",
+                subtitle: "La Brújula Interna",
+                concept: "Consiste en un profundo y honesto entendimiento de nuestras propias fortalezas, debilidades, motivaciones fundamentales y valores trascendentes. Quien se conoce a sí mismo es libre de influencias externas ciegas y puede actuar de forma verdaderamente intencionada y ética.",
+                example: "Un líder ignaciano realiza el 'Examen de Consciencia' al final de cada jornada: dedica 10 minutos a reflexionar sobre sus emociones, decisiones y acciones del día, asumiendo errores con humildad y planificando mejoras específicas para la mañana siguiente."
+            },
+            2: {
+                title: "2. Amor",
+                subtitle: "El motor del servicio",
+                concept: "Es el compromiso absoluto y afectivo con el bienestar, dignidad y desarrollo integral de los demás. No se basa en sentimentalismo, sino en el reconocimiento activo de que cada ser humano posee un valor sagrado y un potencial incalculable.",
+                example: "Un director nota que uno de sus colaboradores comete errores inusuales debido a un problema personal grave en casa. En lugar de sancionarlo, se reúne con él para escucharlo de manera activa, brindarle apoyo emocional, re-estructurar temporalmente sus metas de trabajo y demostrarle que el equipo está para sostenerlo."
+            },
+            3: {
+                title: "3. Heroísmo",
+                subtitle: "El horizonte infinito (Magis)",
+                concept: "Es la audacia interna para soñar en grande, asumir riesgos necesarios y motivar a otros a comprometerse con misiones grandiosas al servicio del bien común. Se arraiga en la constante búsqueda de la excelencia y en el rechazo rotundo de la mediocridad o el conformismo.",
+                example: "Ante una alarmante crisis ambiental en su comunidad, un líder juvenil decide iniciar una campaña de reforestación masiva, logrando inspirar y unificar a múltiples organizaciones rivales, estudiantes y empresarios para sembrar más de 10,000 árboles nativos superando todo pronóstico."
+            },
+            4: {
+                title: "4. Ingenio",
+                subtitle: "La adaptabilidad libre",
+                concept: "Es la libertad interior para innovar, adaptarse de forma ágil y creativa a los cambios del entorno sin perder la propia identidad o principios fundamentales. Implica ver los problemas difíciles como oportunidades de aprendizaje y soluciones laterales.",
+                example: "Cuando una comunidad indígena aliada se queda sin suministro escolar de emergencia por un desastre natural, el líder ignaciano no espera que lleguen fondos internacionales. Re-orienta el proyecto local utilizando sistemas solares caseros de bajo costo y metodologías de educación móvil al aire libre, garantizando la continuidad pedagógica sin interrupciones."
+            }
+        };
+
+        // UI State Variables
+        let selectedPillarId = null;
+        let quizAnswers = { 1: null, 2: null, 3: null, 4: null };
+        let audioEnabled = true;
+
+        /* Synthesized Audio Engine (No external dependencies) */
+        let audioCtx = null;
+        function playChime(freq1, freq2, duration) {
+            if (!audioEnabled) return;
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc1 = audioCtx.createOscillator();
+                const osc2 = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+
+                osc1.type = 'sine';
+                osc1.frequency.setValueAtTime(freq1, audioCtx.currentTime);
+                osc2.type = 'triangle';
+                osc2.frequency.setValueAtTime(freq2, audioCtx.currentTime);
+
+                gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+                osc1.connect(gainNode);
+                osc2.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                osc1.start();
+                osc2.start();
+                osc1.stop(audioCtx.currentTime + duration);
+                osc2.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                console.log("Audio contexts pending user interaction");
+            }
+        }
+
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            const btn = document.getElementById('audio-toggle');
+            const icon = document.getElementById('audio-icon');
+            if (audioEnabled) {
+                icon.innerText = "🔊";
+                btn.classList.remove('text-slate-500');
+                btn.classList.add('text-gold-500');
+                playChime(440, 554, 0.4);
+            } else {
+                icon.innerText = "🔇";
+                btn.classList.remove('text-gold-500');
+                btn.classList.add('text-slate-500');
+            }
+        }
+
+        /* Ambient Sparkling Stars generator */
+        window.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('sparkle-container');
+            const numSparkles = 25;
+            for (let i = 0; i < numSparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                const size = Math.random() * 4 + 2;
+                sparkle.style.width = `${size}px`;
+                sparkle.style.height = `${size}px`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.animationDelay = `${Math.random() * 8}s`;
+                sparkle.style.animationDuration = `${Math.random() * 6 + 4}s`;
+                container.appendChild(sparkle);
+            }
+        });
+
+        function selectPillar(id) {
+            selectedPillarId = id;
+            
+            // Highlight Selected Card and reset others
+            for (let i = 1; i <= 4; i++) {
+                const card = document.getElementById(`pillar-card-${i}`);
+                if (i === id) {
+                    card.classList.add('border-gold-500', 'bg-gold-500/10');
+                    card.classList.remove('border-gold-500/20', 'bg-navy-900/60');
+                } else {
+                    card.classList.remove('border-gold-500', 'bg-gold-500/10');
+                    card.classList.add('border-gold-500/20', 'bg-navy-900/60');
+                }
+            }
+
+            // Fill Detail Panel Content
+            const data = pillarData[id];
+            document.getElementById('detail-number').innerText = `0${id}`;
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-subtitle').innerText = data.subtitle;
+            document.getElementById('detail-concept').innerText = data.concept;
+            document.getElementById('detail-example').innerText = data.example;
+
+            // Show and select micro-tool
+            document.querySelectorAll('.tool-content').forEach(tool => tool.classList.add('hidden'));
+            document.getElementById(`tool-${id}`).classList.remove('hidden');
+
+            // Show Panel with smooth scrolling
+            const detailSection = document.getElementById('pilar-detail-section');
+            detailSection.classList.remove('hidden');
+            detailSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Premium visual & sound cues
+            playChime(329.63 * (1 + id * 0.15), 523.25 * (1 + id * 0.1), 0.5);
+        }
+
+        function closeDetails() {
+            document.getElementById('pilar-detail-section').classList.add('hidden');
+            for (let i = 1; i <= 4; i++) {
+                const card = document.getElementById(`pillar-card-${i}`);
+                card.classList.remove('border-gold-500', 'bg-gold-500/10');
+                card.classList.add('border-gold-500/20', 'bg-navy-900/60');
+            }
+            playChime(261.63, 196, 0.3);
+            selectedPillarId = null;
+        }
+
+        /* Interactive Tool Actions */
+        
+        // Tool 1 Action
+        function saveReflection() {
+            const q1 = document.getElementById('reflect-q1').value.trim();
+            const q2 = document.getElementById('reflect-q2').value.trim();
+            const q3 = document.getElementById('reflect-q3').value.trim();
+
+            if (!q1 || !q2 || !q3) {
+                alertUser("Por favor, completa todas las preguntas del examen diario.");
+                return;
+            }
+
+            const output = document.getElementById('reflection-output');
+            output.innerHTML = `<strong>✨ Tu Examen Registrado:</strong><br>Hoy agradeces por: "${q1}"<br>Mañana te comprometes a: "${q3}"`;
+            output.classList.remove('hidden');
+
+            playChime(523.25, 659.25, 0.6);
+            alertUser("¡Examen diario guardado exitosamente! Tómate un momento para respirar e integrar tus respuestas.");
+        }
+
+        // Tool 2 Action
+        function generateLoveCard() {
+            const loveTo = document.getElementById('love-to').value.trim();
+            const loveText = document.getElementById('love-text').value.trim();
+
+            if (!loveTo || !loveText) {
+                alertUser("Por favor, introduce el nombre del destinatario y la fortaleza que admiras.");
+                return;
+            }
+
+            const preview = document.getElementById('love-card-preview');
+            document.getElementById('love-card-body').innerText = `"${loveText}"`;
+            document.getElementById('love-card-signature').innerText = `Dedicado con aprecio a: ${loveTo}`;
+            preview.classList.remove('hidden');
+
+            playChime(587.33, 698.46, 0.6);
+        }
+
+        // Tool 3 Action
+        function commitToMission() {
+            const mission = document.getElementById('hero-mission').value.trim();
+            const c1 = document.getElementById('hero-c1').checked;
+            const c2 = document.getElementById('hero-c2').checked;
+            const c3 = document.getElementById('hero-c3').checked;
+
+            if (!mission) {
+                alertUser("Por favor, describe tu noble misión.");
+                return;
+            }
+
+            if (!c1 || !c2 || !c3) {
+                alertUser("Un verdadero líder asume todos los compromisos. Por favor, marca las tres acciones heroicas.");
+                return;
+            }
+
+            const feedback = document.getElementById('hero-feedback');
+            feedback.innerHTML = `🛡️ Misión heroica asumida con valor: <br><strong>"${mission}"</strong><br><em>"Ad maiorem Dei gloriam - Para el mayor bien común"</em>`;
+            feedback.classList.remove('hidden');
+
+            playChime(392, 587.33, 0.8);
+        }
+
+        // Tool 4 Action
+        function evaluateIngenuity() {
+            const choice = document.querySelector('input[name="ing-choice"]:checked');
+            if (!choice) {
+                alertUser("Por favor, selecciona una de las tres opciones de ingenio.");
+                return;
+            }
+
+            const feedback = document.getElementById('ingenuity-feedback');
+            feedback.classList.remove('hidden');
+
+            if (choice.value === 'a') {
+                feedback.innerHTML = `❌ <strong>Opción A:</strong> Aunque es prudente, detenerse ante la escasez limita tu adaptabilidad. El verdadero ingenio busca actuar en todo momento resolviendo contratiempos de forma creativa.`;
+                playChime(220, 293, 0.4);
+            } else if (choice.value === 'b') {
+                feedback.innerHTML = `✨ <strong>Opción B:</strong> ¡Excelente! Las alianzas estratégicas son una forma brillante de Ingenio Ignaciano, expandiendo metas al conectar mentes comprometidas.`;
+                playChime(659.25, 783.99, 0.6);
+            } else {
+                feedback.innerHTML = `🌟 <strong>Opción C:</strong> ¡Magnífico! Usar recursos reciclados y movilización local es la definición pura de la adaptabilidad ignaciana: innovar con libertad sin esperar condiciones perfectas.`;
+                playChime(783.99, 987.77, 0.6);
+            }
+        }
+
+        /* Custom non-intrusive notification element helper */
+        function alertUser(message) {
+            // Check if alert box already exists
+            let alertBox = document.getElementById('custom-alert');
+            if (!alertBox) {
+                alertBox = document.createElement('div');
+                alertBox.id = 'custom-alert';
+                alertBox.className = 'fixed bottom-5 right-5 z-50 max-w-sm bg-navy-950 border border-gold-500/80 rounded-xl p-4 text-xs text-slate-200 shadow-2xl transition-all duration-300 translate-y-10 opacity-0';
+                document.body.appendChild(alertBox);
+            }
+            alertBox.innerHTML = `
+                <div class="flex items-start gap-2">
+                    <span class="text-gold-500 text-sm">💡</span>
+                    <div>
+                        <p class="font-cinzel text-gold-400 font-semibold mb-1 uppercase tracking-wider">Aviso del Sistema</p>
+                        <p>${message}</p>
+                    </div>
+                </div>
+            `;
+            alertBox.classList.remove('translate-y-10', 'opacity-0');
+            setTimeout(() => {
+                alertBox.classList.add('translate-y-10', 'opacity-0');
+            }, 5000);
+        }
+
+        function answerQuiz(questionNumber, choice) {
+            quizAnswers[questionNumber] = choice;
+            playChime(523.25, 587.33, 0.2);
+
+            // Update progress bar
+            const progress = (questionNumber / 4) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+
+            // Transition to next question
+            const currentQuestion = document.querySelector(`.quiz-question[data-index="${questionNumber}"]`);
+            currentQuestion.classList.add('hidden');
+
+            if (questionNumber < 4) {
+                const nextQuestion = document.querySelector(`.quiz-question[data-index="${questionNumber + 1}"]`);
+                nextQuestion.classList.remove('hidden');
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            // Tally Answers
+            const counts = { A: 0, B: 0, C: 0, D: 0 };
+            Object.values(quizAnswers).forEach(ans => {
+                if (ans) counts[ans]++;
+            });
+
+            // Find Dominant Pillar Letter
+            let maxVal = -1;
+            let dominantLetter = 'A';
+            Object.entries(counts).forEach(([letter, val]) => {
+                if (val > maxVal) {
+                    maxVal = val;
+                    dominantLetter = letter;
+                }
+            });
+
+            const resultsDiv = document.getElementById('quiz-results');
+            const title = document.getElementById('result-pillar-title');
+            const desc = document.getElementById('result-pillar-desc');
+
+            if (dominantLetter === 'A') {
+                title.innerText = "El Autoconocimiento";
+                desc.innerText = "Eres un líder con profunda introspección. Conoces perfectamente tus motores internos, virtudes y límites de carácter. Esto te dota de una resiliencia auténtica y te permite guiar con honestidad, sin que el ego nuble tu visión.";
+            } else if (dominantLetter === 'B') {
+                title.innerText = "El Amor";
+                desc.innerText = "Destacas por tu compasión e inteligencia relacional. Lideras desde la empatía profunda, valorando de forma incondicional el talento y las historias de cada persona en tu equipo. Tu misión de servicio se traduce en el desarrollo genuino de otros.";
+            } else if (dominantLetter === 'C') {
+                title.innerText = "El Heroísmo";
+                desc.innerText = "Tu motor principal es la visión trascendente y ambiciosa (El Magis). No te conformas con respuestas tibias o proyectos cómodos. Inspiras a tu comunidad asumiendo metas audaces que desafían la realidad actual para crear bienestar duradero.";
+            } else {
+                title.innerText = "El Ingenio";
+                desc.innerText = "Tu mayor cualidad es la agilidad y adaptabilidad innovadora. Frente a crisis imprevistas, no te paralizas; te reinventas con libertad, diseñando soluciones laterales con ingenio y alegría para avanzar de manera eficiente.";
+            }
+
+            // Map letter back to pillar ID for easy navigating
+            resultsDiv.setAttribute('data-target-pillar', dominantLetter === 'A' ? 1 : dominantLetter === 'B' ? 2 : dominantLetter === 'C' ? 3 : 4);
+
+            resultsDiv.classList.remove('hidden');
+            playChime(523.25, 659.25, 1.0);
+        }
+
+        function restartQuiz() {
+            quizAnswers = { 1: null, 2: null, 3: null, 4: null };
+            document.getElementById('quiz-progress').style.width = `0%`;
+            document.getElementById('quiz-results').classList.add('hidden');
+            
+            // Show question 1
+            document.querySelectorAll('.quiz-question').forEach(q => q.classList.add('hidden'));
+            document.querySelector('.quiz-question[data-index="1"]').classList.remove('hidden');
+            
+            playChime(392, 440, 0.4);
+        }
+
+        function goToPillarFromQuiz() {
+            const resultsDiv = document.getElementById('quiz-results');
+            const pillarId = parseInt(resultsDiv.getAttribute('data-target-pillar') || '1');
+            selectPillar(pillarId);
+        }
+    </script>
+</body>
+</html>
